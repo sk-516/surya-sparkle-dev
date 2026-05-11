@@ -32,7 +32,7 @@ export function Navbar() {
       <div className="mx-auto max-w-6xl px-4">
         <div className={`flex items-center justify-between rounded-2xl px-4 py-3 ${scrolled ? "glass-strong shadow-card" : "glass"}`}>
           <a href="#home" className="flex items-center gap-2 font-display text-lg font-bold">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-hero)] text-primary-foreground shadow-neon">SKB</span>
+            <span className="grid h-8 place-items-center rounded-lg bg-[image:var(--gradient-hero)] px-3 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-neon">Portfolio</span>
             <span className="text-gradient hidden sm:inline">Suresh Kumar Battala</span>
           </a>
           <nav className="hidden items-center gap-1 lg:flex">
