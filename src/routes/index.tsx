@@ -16,10 +16,10 @@ import { CursorGlow, ScrollProgress } from "@/components/portfolio/CursorGlow";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Surya — Suresh Kumar Battala · Software Developer Portfolio" },
-      { name: "description", content: "Portfolio of Suresh Kumar Battala (Surya) — Python Backend Developer, Full Stack Developer, SQL & Automation Enthusiast based in Andhra Pradesh, India." },
-      { property: "og:title", content: "Surya — Software Developer Portfolio" },
-      { property: "og:description", content: "Python Backend · Full Stack · SQL Automation. Explore projects, experience, and skills." },
+      { title: "Suresh Kumar Battala · Software Developer Portfolio" },
+      { name: "description", content: "Portfolio of Suresh Kumar Battala — Python Backend Developer, Database Developer & Web Developer from Dharmavaram, Andhra Pradesh." },
+      { property: "og:title", content: "Suresh Kumar Battala — Software Developer Portfolio" },
+      { property: "og:description", content: "Python Backend · Database · Web Developer. Explore projects, experience and skills." },
     ],
   }),
   component: Index,

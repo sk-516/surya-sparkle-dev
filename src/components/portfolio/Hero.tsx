@@ -5,9 +5,8 @@ import suryaPhoto from "@/assets/surya.png";
 
 const ROLES = [
   "Python Backend Developer",
-  "Full Stack Developer",
-  "SQL & Automation Enthusiast",
-  "Problem Solver",
+  "Database Developer",
+  "Web Developer",
 ];
 
 function useTyping(words: string[]) {
@@ -38,14 +37,11 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-32 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[image:var(--gradient-hero)] opacity-20 blur-3xl" />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[1.2fr_1fr] md:items-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border glass px-3 py-1 font-mono text-xs">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-[color:var(--neon-3)]" /> Available for opportunities
-          </p>
           <h1 className="text-5xl font-bold leading-[1.05] sm:text-7xl">
-            Hi, I'm <span className="text-gradient-hero">Surya</span>
+            Hi, I'm <span className="text-gradient-hero">Suresh Kumar Battala</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-            Suresh Kumar Battala — crafting backends, automations and full-stack experiences.
+            Computer Science Engineer crafting backends, databases and full-stack experiences.
           </p>
           <p className="mt-3 font-mono text-base sm:text-lg">
             <span className="text-muted-foreground">&gt; </span>
@@ -67,8 +63,8 @@ export function Hero() {
             {[
               { Icon: Github, href: "https://github.com/bsureshkumar005" },
               { Icon: Linkedin, href: "https://linkedin.com/in/b-suresh-kumar-b08101312" },
-              { Icon: Instagram, href: "#" },
-              { Icon: Facebook, href: "#" },
+              { Icon: Instagram, href: "https://instagram.com/wordsorcererx" },
+              { Icon: Facebook, href: "https://facebook.com/sureshkumar.battala" },
               { Icon: Mail, href: "mailto:bsureshkumarcse@gmail.com" },
             ].map(({ Icon, href }, i) => (
               <a key={i} href={href} target="_blank" rel="noreferrer"
@@ -85,13 +81,13 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative mx-auto"
         >
-          <div className="relative float-slow">
-            <div className="absolute -inset-6 rounded-full bg-[image:var(--gradient-hero)] opacity-40 blur-2xl" />
-            <div className="relative grid h-72 w-72 place-items-center rounded-full bg-[image:var(--gradient-hero)] p-[3px] sm:h-80 sm:w-80">
+          <div className="relative float-bob">
+            <div className="absolute -inset-6 rounded-[50%] bg-[image:var(--gradient-hero)] opacity-40 blur-2xl" />
+            <div className="relative grid h-80 w-64 place-items-center rounded-[50%] bg-[image:var(--gradient-hero)] p-[3px] sm:h-96 sm:w-72">
               <img
                 src={suryaPhoto}
-                alt="Suresh Kumar Battala (Surya)"
-                className="h-full w-full rounded-full object-cover"
+                alt="Suresh Kumar Battala"
+                className="h-full w-full rounded-[50%] object-cover"
               />
             </div>
             <div className="absolute -right-2 top-6 rounded-xl glass px-3 py-2 text-xs font-mono">
