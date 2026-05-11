@@ -93,17 +93,17 @@ export function Hero() {
         >
           <div className="relative float-bob">
             <div className="absolute -inset-6 rounded-[50%] bg-[image:var(--gradient-hero)] opacity-40 blur-2xl" />
-            <div className="relative grid h-80 w-64 overflow-hidden place-items-center rounded-[50%] bg-[image:var(--gradient-hero)] p-[3px] sm:h-96 sm:w-72">
+            <div className="relative h-96 w-72 overflow-hidden rounded-[50%] bg-[image:var(--gradient-hero)] p-[3px] sm:h-[28rem] sm:w-80">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={photoIdx}
                   src={PHOTOS[photoIdx]}
                   alt="Suresh Kumar Battala"
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.6 }}
-                  className="absolute inset-[3px] h-[calc(100%-6px)] w-[calc(100%-6px)] rounded-[50%] object-cover"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-[3px] h-[calc(100%-6px)] w-[calc(100%-6px)] rounded-[50%] object-cover object-top"
                 />
               </AnimatePresence>
             </div>
