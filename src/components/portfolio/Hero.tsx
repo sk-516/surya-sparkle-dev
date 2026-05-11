@@ -107,6 +107,20 @@ export function Hero() {
                 />
               </AnimatePresence>
             </div>
+            <div className="mt-5 flex items-center justify-center gap-2">
+              {PHOTOS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setPhotoIdx(i)}
+                  aria-label={`Show photo ${i + 1}`}
+                  className={`h-2 rounded-full transition-all ${
+                    i === photoIdx
+                      ? "w-6 bg-[image:var(--gradient-hero)] shadow-neon"
+                      : "w-2 bg-white/25 hover:bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
