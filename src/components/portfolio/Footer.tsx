@@ -38,7 +38,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <a href="#home" className="flex items-center gap-2 font-display text-xl font-bold">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-[image:var(--gradient-hero)] text-primary-foreground shadow-neon">SKB</span>
+              <span className="grid h-9 place-items-center rounded-lg bg-[image:var(--gradient-hero)] px-3 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-neon">Portfolio</span>
               <span className="text-gradient">Suresh Kumar Battala</span>
             </a>
             <p className="mt-3 text-sm text-muted-foreground">Computer Science Engineer & Software Developer — building backends, databases and full-stack experiences.</p>
