@@ -83,7 +83,7 @@ export function Skills() {
                 className="group flex flex-col items-center gap-2 rounded-xl glass p-4 transition hover:-translate-y-1 hover:ring-neon"
               >
                 <img
-                  src={`https://cdn.simpleicons.org/${t.slug}/${t.color}`}
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${t.icon}.svg`}
                   alt={`${t.name} logo`}
                   loading="lazy"
                   width={36}
