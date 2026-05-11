@@ -16,7 +16,14 @@ const tech = [
   { name: "Git & GitHub", level: 85 },
 ];
 
-const extras = ["Backend Development", "Database Automation", "ETL Process Development", "Problem Solving", "Team Collaboration", "Full Stack Development"];
+const extras = [
+  "Backend Development",
+  "Database Automation",
+  "ETL Process Development",
+  "Problem Solving",
+  "Team Collaboration",
+  "Full Stack Development",
+];
 
 const stack: { name: string; Icon: IconType; tone: string }[] = [
   { name: "Python", Icon: FaPython, tone: "text-neon" },
