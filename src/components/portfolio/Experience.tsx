@@ -4,6 +4,26 @@ import { Briefcase, CheckCircle2 } from "lucide-react";
 
 const xp = [
   {
+    role: "Associate Software Developer",
+    company: "Aveinfosys",
+    time: "May 2026 – Present",
+    bullets: [
+      "Building and maintaining production software solutions",
+      "Collaborating with cross-functional teams on full-stack features",
+      "Writing clean, scalable, and well-tested code",
+    ],
+  },
+  {
+    role: "Database Developer",
+    company: "Outlier",
+    time: "Aug 2025 – Apr 2026",
+    bullets: [
+      "Worked on database development and optimization tasks",
+      "Designed and refined SQL queries, schemas, and stored procedures",
+      "Contributed to high-quality data workflows and validation",
+    ],
+  },
+  {
     role: "Database Development Trainee",
     company: "Charvee Software Training Institute",
     time: "Jan 2025 – June 2025",

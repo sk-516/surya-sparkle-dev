@@ -5,7 +5,7 @@ import { GraduationCap } from "lucide-react";
 const items = [
   { title: "B.Tech — Computer Science & Engineering", place: "Vemu Institute of Technology", time: "2020 – 2024", score: "CGPA: 8.3" },
   { title: "Intermediate (MPC)", place: "Sri Sathya Sai Junior College", time: "2018 – 2020", score: "Percentage: 95%" },
-  { title: "SSC", place: "Zilla Parishad High School", time: "—", score: "GPA: 8.5" },
+  { title: "SSC", place: "Zilla Parishad High School", time: "2018", score: "GPA: 8.5" },
 ];
 
 export function Education() {
