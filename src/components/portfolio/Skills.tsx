@@ -16,15 +16,15 @@ const tech = [
 const extras = ["Backend Development", "Database Automation", "ETL Process Development", "Problem Solving", "Team Collaboration", "Full Stack Development"];
 
 const stack = [
-  { name: "Python", slug: "python", color: "3776AB" },
-  { name: "Java", slug: "openjdk", color: "ED8B00" },
-  { name: "JavaScript", slug: "javascript", color: "F7DF1E" },
-  { name: "SQL", slug: "mysql", color: "4479A1" },
-  { name: "Flask", slug: "flask", color: "FFFFFF" },
-  { name: "React", slug: "react", color: "61DAFB" },
-  { name: "HTML5", slug: "html5", color: "E34F26" },
-  { name: "CSS3", slug: "css3", color: "1572B6" },
-  { name: "Git", slug: "git", color: "F05032" },
+  { name: "Python", icon: "python/python-original" },
+  { name: "Java", icon: "java/java-original" },
+  { name: "JavaScript", icon: "javascript/javascript-original" },
+  { name: "SQL", icon: "mysql/mysql-original" },
+  { name: "Flask", icon: "flask/flask-original" },
+  { name: "React", icon: "react/react-original" },
+  { name: "HTML5", icon: "html5/html5-original" },
+  { name: "CSS3", icon: "css3/css3-original" },
+  { name: "Git", icon: "git/git-original" },
 ];
 
 export function Skills() {
