@@ -1,7 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook } from "lucide-react";
 import suryaPhoto from "@/assets/surya.png";
+import suryaPhoto2 from "@/assets/surya-2.jpg";
+import suryaPhoto3 from "@/assets/surya-3.jpg";
+import suryaPhoto4 from "@/assets/surya-4.jpg";
+
+const PHOTOS = [suryaPhoto, suryaPhoto2, suryaPhoto3, suryaPhoto4];
 
 const ROLES = [
   "Python Backend Developer",
@@ -31,6 +36,11 @@ function useTyping(words: string[]) {
 
 export function Hero() {
   const typed = useTyping(ROLES);
+  const [photoIdx, setPhotoIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setPhotoIdx((i) => (i + 1) % PHOTOS.length), 2250);
+    return () => clearInterval(id);
+  }, []);
   return (
     <section id="home" className="relative overflow-hidden pt-32 pb-20 sm:pt-40">
       <div className="absolute inset-0 grid-bg opacity-40" />
@@ -83,18 +93,19 @@ export function Hero() {
         >
           <div className="relative float-bob">
             <div className="absolute -inset-6 rounded-[50%] bg-[image:var(--gradient-hero)] opacity-40 blur-2xl" />
-            <div className="relative grid h-80 w-64 place-items-center rounded-[50%] bg-[image:var(--gradient-hero)] p-[3px] sm:h-96 sm:w-72">
-              <img
-                src={suryaPhoto}
-                alt="Suresh Kumar Battala"
-                className="h-full w-full rounded-[50%] object-cover"
-              />
-            </div>
-            <div className="absolute -right-2 top-6 rounded-xl glass px-3 py-2 text-xs font-mono">
-              <span className="text-[color:var(--neon-3)]">●</span> Python · SQL
-            </div>
-            <div className="absolute -left-4 bottom-10 rounded-xl glass px-3 py-2 text-xs font-mono">
-              <span className="text-[color:var(--neon-2)]">●</span> Flask · React
+            <div className="relative grid h-80 w-64 overflow-hidden place-items-center rounded-[50%] bg-[image:var(--gradient-hero)] p-[3px] sm:h-96 sm:w-72">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={photoIdx}
+                  src={PHOTOS[photoIdx]}
+                  alt="Suresh Kumar Battala"
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-[3px] h-[calc(100%-6px)] w-[calc(100%-6px)] rounded-[50%] object-cover"
+                />
+              </AnimatePresence>
             </div>
           </div>
         </motion.div>
