@@ -2,21 +2,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Section } from "./Section";
 import { Github, ExternalLink } from "lucide-react";
+import imgVoting from "@/assets/proj-voting.jpg";
+import imgDb from "@/assets/proj-db.jpg";
+import imgCoffee from "@/assets/proj-coffee.jpg";
+import imgTravel from "@/assets/proj-travel.jpg";
+import imgBooks from "@/assets/proj-books.jpg";
+import imgLearn from "@/assets/proj-learn.jpg";
 
 type Project = {
   title: string;
   desc: string;
   tech: string[];
   category: "Python" | "Web" | "Database" | "Full Stack";
+  image: string;
 };
 
 const projects: Project[] = [
-  { title: "Electronic Voting Machine", desc: "Secure voting system with facial recognition & fingerprint biometric authentication.", tech: ["Python", "OpenCV", "Face Recognition"], category: "Python" },
-  { title: "Data Loading & Deduplication", desc: "Automated ETL pipelines using SQL Server & SSIS for monthly client data processing.", tech: ["SQL Server", "SSIS", "T-SQL"], category: "Database" },
-  { title: "Coffee Shop Website", desc: "Modern responsive coffee shop site with elegant UI and online ordering features.", tech: ["HTML", "CSS", "JavaScript"], category: "Web" },
-  { title: "Travel Website", desc: "Responsive travel booking & destination showcase with attractive UI.", tech: ["HTML", "CSS", "JavaScript"], category: "Web" },
-  { title: "Online Book Application", desc: "Bookstore web app with login, search, and order tracking.", tech: ["Python", "Flask", "SQL"], category: "Full Stack" },
-  { title: "Learn Sphere", desc: "Modern e-commerce learning platform with interactive courses & products.", tech: ["React", "JavaScript", "APIs"], category: "Full Stack" },
+  { title: "Electronic Voting Machine", desc: "Secure voting system with facial recognition & fingerprint biometric authentication.", tech: ["Python", "OpenCV", "Face Recognition"], category: "Python", image: imgVoting },
+  { title: "Data Loading & Deduplication", desc: "Automated ETL pipelines using SQL Server & SSIS for monthly client data processing.", tech: ["SQL Server", "SSIS", "T-SQL"], category: "Database", image: imgDb },
+  { title: "Coffee Shop Website", desc: "Modern responsive coffee shop site with elegant UI and online ordering features.", tech: ["HTML", "CSS", "JavaScript"], category: "Web", image: imgCoffee },
+  { title: "Travel Website", desc: "Responsive travel booking & destination showcase with attractive UI.", tech: ["HTML", "CSS", "JavaScript"], category: "Web", image: imgTravel },
+  { title: "Online Book Application", desc: "Bookstore web app with login, search, and order tracking.", tech: ["Python", "Flask", "SQL"], category: "Full Stack", image: imgBooks },
+  { title: "Learn Sphere", desc: "Modern e-commerce learning platform with interactive courses & products.", tech: ["React", "JavaScript", "APIs"], category: "Full Stack", image: imgLearn },
 ];
 
 const cats = ["All", "Python", "Web", "Database", "Full Stack"] as const;
@@ -52,11 +59,19 @@ export function Projects() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group relative overflow-hidden rounded-2xl glass p-6 transition hover:-translate-y-1.5 hover:ring-neon"
+              className="group relative overflow-hidden rounded-2xl glass p-4 transition hover:-translate-y-1.5 hover:ring-neon"
             >
               <div className="absolute inset-0 -z-10 bg-[image:var(--gradient-hero)] opacity-0 blur-2xl transition group-hover:opacity-20" />
-              <div className="mb-4 flex h-32 items-center justify-center rounded-xl bg-gradient-to-br from-white/5 to-transparent font-mono text-4xl text-gradient">
-                {"{ }"}
+              <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  width={800}
+                  height={512}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </div>
               <span className="rounded-full bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[color:var(--neon)]">
                 {p.category}
@@ -69,8 +84,8 @@ export function Projects() {
                 ))}
               </div>
               <div className="mt-5 flex gap-2">
-                <a href="#" className="inline-flex items-center gap-1.5 rounded-lg glass px-3 py-1.5 text-xs font-semibold transition hover:bg-white/10"><Github size={14} /> Code</a>
-                <a href="#" className="inline-flex items-center gap-1.5 rounded-lg bg-[image:var(--gradient-hero)] px-3 py-1.5 text-xs font-semibold text-primary-foreground transition hover:opacity-90"><ExternalLink size={14} /> Live</a>
+                <a href="https://github.com/bsureshkumar005" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-lg glass px-3 py-1.5 text-xs font-semibold transition hover:bg-white/10"><Github size={14} /> Code</a>
+                <a href="#contact" className="inline-flex items-center gap-1.5 rounded-lg bg-[image:var(--gradient-hero)] px-3 py-1.5 text-xs font-semibold text-primary-foreground transition hover:opacity-90"><ExternalLink size={14} /> Live</a>
               </div>
             </motion.article>
           ))}

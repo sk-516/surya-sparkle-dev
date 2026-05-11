@@ -1,20 +1,21 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Section } from "./Section";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, Facebook, Ghost } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react";
 
 const contacts = [
   { Icon: Mail, label: "Email", value: "bsureshkumarcse@gmail.com", href: "mailto:bsureshkumarcse@gmail.com" },
   { Icon: Phone, label: "Phone", value: "+91 8125867018", href: "tel:+918125867018" },
-  { Icon: MapPin, label: "Location", value: "Andhra Pradesh, India", href: "#" },
+  { Icon: MessageCircle, label: "WhatsApp", value: "+91 8125867018", href: "https://wa.me/918125867018" },
+  { Icon: MapPin, label: "Location", value: "Dharmavaram, Andhra Pradesh, India", href: "#" },
 ];
 
 const socials = [
   { Icon: Linkedin, href: "https://linkedin.com/in/b-suresh-kumar-b08101312", label: "LinkedIn" },
   { Icon: Github, href: "https://github.com/bsureshkumar005", label: "GitHub" },
-  { Icon: Instagram, href: "#", label: "Instagram" },
-  { Icon: Facebook, href: "#", label: "Facebook" },
-  { Icon: Ghost, href: "#", label: "Snapchat" },
+  { Icon: Instagram, href: "https://instagram.com/wordsorcererx", label: "Instagram @wordsorcererx" },
+  { Icon: Facebook, href: "https://facebook.com/sureshkumar.battala", label: "Facebook — Suresh Kumar Battala" },
+  { Icon: MessageCircle, href: "https://wa.me/918125867018", label: "WhatsApp +91 8125867018" },
   { Icon: Mail, href: "mailto:bsureshkumarcse@gmail.com", label: "Gmail" },
 ];
 
@@ -28,6 +29,8 @@ export function Contact() {
             <motion.a
               key={c.label}
               href={c.href}
+              target={c.href.startsWith("http") ? "_blank" : undefined}
+              rel="noreferrer"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -53,6 +56,7 @@ export function Contact() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
+                  title={s.label}
                   className="grid h-11 w-11 place-items-center rounded-xl glass text-muted-foreground transition hover:-translate-y-1 hover:text-foreground hover:ring-neon"
                 >
                   <s.Icon size={18} />
