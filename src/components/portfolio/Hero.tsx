@@ -38,7 +38,7 @@ export function Hero() {
   const typed = useTyping(ROLES);
   const [photoIdx, setPhotoIdx] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setPhotoIdx((i) => (i + 1) % PHOTOS.length), 2250);
+    const id = setInterval(() => setPhotoIdx((i) => (i + 1) % PHOTOS.length), 4000);
     return () => clearInterval(id);
   }, []);
   return (
