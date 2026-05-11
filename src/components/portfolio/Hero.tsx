@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook } from "lucide-react";
+import suryaPhoto from "@/assets/surya.png";
 
 const ROLES = [
   "Python Backend Developer",
@@ -87,9 +88,11 @@ export function Hero() {
           <div className="relative float-slow">
             <div className="absolute -inset-6 rounded-full bg-[image:var(--gradient-hero)] opacity-40 blur-2xl" />
             <div className="relative grid h-72 w-72 place-items-center rounded-full bg-[image:var(--gradient-hero)] p-[3px] sm:h-80 sm:w-80">
-              <div className="grid h-full w-full place-items-center rounded-full bg-card text-7xl font-bold text-gradient-hero">
-                S
-              </div>
+              <img
+                src={suryaPhoto}
+                alt="Suresh Kumar Battala (Surya)"
+                className="h-full w-full rounded-full object-cover"
+              />
             </div>
             <div className="absolute -right-2 top-6 rounded-xl glass px-3 py-2 text-xs font-mono">
               <span className="text-[color:var(--neon-3)]">●</span> Python · SQL
