@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import type { IconType } from "react-icons";
+import { FaCss3Alt, FaGitAlt, FaHtml5, FaJava, FaJs, FaPython, FaReact } from "react-icons/fa";
+import { SiFlask, SiMysql } from "react-icons/si";
 import { Section } from "./Section";
 
 const tech = [
@@ -13,18 +16,25 @@ const tech = [
   { name: "Git & GitHub", level: 85 },
 ];
 
-const extras = ["Backend Development", "Database Automation", "ETL Process Development", "Problem Solving", "Team Collaboration", "Full Stack Development"];
+const extras = [
+  "Backend Development",
+  "Database Automation",
+  "ETL Process Development",
+  "Problem Solving",
+  "Team Collaboration",
+  "Full Stack Development",
+];
 
-const stack = [
-  { name: "Python", icon: "python/python-original" },
-  { name: "Java", icon: "java/java-original" },
-  { name: "JavaScript", icon: "javascript/javascript-original" },
-  { name: "SQL", icon: "mysql/mysql-original" },
-  { name: "Flask", icon: "flask/flask-original" },
-  { name: "React", icon: "react/react-original" },
-  { name: "HTML5", icon: "html5/html5-original" },
-  { name: "CSS3", icon: "css3/css3-original" },
-  { name: "Git", icon: "git/git-original" },
+const stack: { name: string; Icon: IconType; tone: string }[] = [
+  { name: "Python", Icon: FaPython, tone: "text-neon" },
+  { name: "Java", Icon: FaJava, tone: "text-neon-2" },
+  { name: "JavaScript", Icon: FaJs, tone: "text-neon-3" },
+  { name: "SQL", Icon: SiMysql, tone: "text-primary" },
+  { name: "Flask", Icon: SiFlask, tone: "text-foreground" },
+  { name: "React", Icon: FaReact, tone: "text-neon" },
+  { name: "HTML5", Icon: FaHtml5, tone: "text-neon-2" },
+  { name: "CSS3", Icon: FaCss3Alt, tone: "text-primary" },
+  { name: "Git", Icon: FaGitAlt, tone: "text-neon-3" },
 ];
 
 export function Skills() {
@@ -82,13 +92,9 @@ export function Skills() {
                 transition={{ duration: 0.4, delay: i * 0.04 }}
                 className="group flex flex-col items-center gap-2 rounded-xl glass p-4 transition hover:-translate-y-1 hover:ring-neon"
               >
-                <img
-                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${t.icon}.svg`}
-                  alt={`${t.name} logo`}
-                  loading="lazy"
-                  width={36}
-                  height={36}
-                  className="h-9 w-9 transition group-hover:scale-110"
+                <t.Icon
+                  aria-label={`${t.name} logo`}
+                  className={`h-11 w-11 shrink-0 drop-shadow-[0_0_18px_color-mix(in_oklab,currentColor_45%,transparent)] transition group-hover:scale-110 ${t.tone}`}
                 />
                 <span className="font-mono text-xs">{t.name}</span>
               </motion.div>
