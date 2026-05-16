@@ -1,12 +1,7 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook } from "lucide-react";
-import suryaPhoto from "@/assets/surya.png";
-import suryaPhoto2 from "@/assets/surya-2.jpg";
-import suryaPhoto3 from "@/assets/surya-3.jpg";
-import suryaPhoto4 from "@/assets/surya-4.jpg";
-
-const PHOTOS = [suryaPhoto, suryaPhoto2, suryaPhoto3, suryaPhoto4];
+import suryaPhoto from "@/assets/surya-main.png";
 
 const ROLES = [
   "Python Backend Developer",
@@ -36,11 +31,6 @@ function useTyping(words: string[]) {
 
 export function Hero() {
   const typed = useTyping(ROLES);
-  const [photoIdx, setPhotoIdx] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setPhotoIdx((i) => (i + 1) % PHOTOS.length), 4000);
-    return () => clearInterval(id);
-  }, []);
   return (
     <section id="home" className="relative overflow-hidden pt-32 pb-20 sm:pt-40">
       <div className="absolute inset-0 grid-bg opacity-40" />
@@ -94,32 +84,11 @@ export function Hero() {
           <div className="relative float-bob">
             <div className="absolute -inset-6 rounded-[50%] bg-[image:var(--gradient-hero)] opacity-40 blur-2xl" />
             <div className="relative h-96 w-72 overflow-hidden rounded-[50%] bg-[image:var(--gradient-hero)] p-[3px] sm:h-[28rem] sm:w-80">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={photoIdx}
-                  src={PHOTOS[photoIdx]}
-                  alt="Suresh Kumar Battala"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="absolute inset-[3px] h-[calc(100%-6px)] w-[calc(100%-6px)] rounded-[50%] object-cover object-top"
-                />
-              </AnimatePresence>
-            </div>
-            <div className="mt-5 flex items-center justify-center gap-2">
-              {PHOTOS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setPhotoIdx(i)}
-                  aria-label={`Show photo ${i + 1}`}
-                  className={`h-2 rounded-full transition-all ${
-                    i === photoIdx
-                      ? "w-6 bg-[image:var(--gradient-hero)] shadow-neon"
-                      : "w-2 bg-white/25 hover:bg-white/50"
-                  }`}
-                />
-              ))}
+              <img
+                src={suryaPhoto}
+                alt="Suresh Kumar Battala"
+                className="absolute inset-[3px] h-[calc(100%-6px)] w-[calc(100%-6px)] rounded-[50%] object-cover object-top"
+              />
             </div>
           </div>
         </motion.div>

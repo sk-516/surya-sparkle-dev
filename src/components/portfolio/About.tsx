@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
-import { MapPin, GraduationCap, MessageCircle, Brain } from "lucide-react";
+import { MapPin, GraduationCap, MessageCircle, Brain, Users, Sparkles } from "lucide-react";
 
 const cards = [
   { Icon: MapPin, title: "Hometown", value: "Dharmavaram, Andhra Pradesh" },
   { Icon: GraduationCap, title: "University", value: "JNTUA University" },
   { Icon: MessageCircle, title: "Soft Skill", value: "Good Communication Skills" },
   { Icon: Brain, title: "Strength", value: "Strong Problem Solving Ability" },
+  { Icon: Users, title: "Caste", value: "OBC – Non Creamy Layer" },
+  { Icon: Sparkles, title: "Religion", value: "Hindu" },
 ];
 
 export function About() {
