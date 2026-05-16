@@ -1,13 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Section } from "./Section";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, PlayCircle } from "lucide-react";
 import imgVoting from "@/assets/proj-voting.jpg";
 import imgDb from "@/assets/proj-db.jpg";
 import imgCoffee from "@/assets/proj-coffee.jpg";
 import imgTravel from "@/assets/proj-travel.jpg";
 import imgBooks from "@/assets/proj-books.jpg";
 import imgLearn from "@/assets/proj-learn.jpg";
+import { ProjectDemo, type DemoSlide } from "./ProjectDemo";
 
 type Project = {
   title: string;
@@ -15,6 +16,7 @@ type Project = {
   tech: string[];
   category: "Python" | "Web" | "Database" | "Full Stack";
   image: string;
+  slides: DemoSlide[];
 };
 
 const projects: Project[] = [
