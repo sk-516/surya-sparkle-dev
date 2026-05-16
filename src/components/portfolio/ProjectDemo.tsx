@@ -38,7 +38,7 @@ export function ProjectDemo({
         const next = p + step / (SECONDS_PER_SLIDE * 1000);
         if (next >= 1) {
           setIdx((i) => (i + 1 < total ? i + 1 : i));
-          return i => 0 as unknown as number ? 0 : 0;
+          return 0;
         }
         return next;
       });
