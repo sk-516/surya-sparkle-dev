@@ -16,15 +16,6 @@ const tech = [
   { name: "Git & GitHub", level: 85 },
 ];
 
-const extras = [
-  "Backend Development",
-  "Database Automation",
-  "ETL Process Development",
-  "Problem Solving",
-  "Team Collaboration",
-  "Full Stack Development",
-];
-
 const stack: { name: string; Icon: IconType; tone: string }[] = [
   { name: "Python", Icon: FaPython, tone: "text-neon" },
   { name: "Java", Icon: FaJava, tone: "text-neon-2" },
@@ -67,22 +58,8 @@ export function Skills() {
           ))}
         </div>
         <div>
-          <h3 className="mb-4 font-display text-xl">Additional Skills</h3>
-          <div className="flex flex-wrap gap-3">
-            {extras.map((x, i) => (
-              <motion.span
-                key={x}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="rounded-xl glass px-4 py-2 text-sm transition hover:-translate-y-0.5 hover:ring-neon"
-              >
-                {x}
-              </motion.span>
-            ))}
-          </div>
-          <div className="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-3">
+          <h3 className="mb-4 font-display text-xl">Tech Stack</h3>
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-3">
             {stack.map((t, i) => (
               <motion.div
                 key={t.name}
