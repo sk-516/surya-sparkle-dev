@@ -116,6 +116,7 @@ const cats = ["All", "Python", "Web", "Database", "Full Stack"] as const;
 
 export function Projects() {
   const [filter, setFilter] = useState<(typeof cats)[number]>("All");
+  const [demo, setDemo] = useState<Project | null>(null);
   const list = filter === "All" ? projects : projects.filter(p => p.category === filter);
 
   return (
@@ -148,7 +149,11 @@ export function Projects() {
               className="group relative overflow-hidden rounded-2xl glass p-4 transition hover:-translate-y-1.5 hover:ring-neon"
             >
               <div className="absolute inset-0 -z-10 bg-[image:var(--gradient-hero)] opacity-0 blur-2xl transition group-hover:opacity-20" />
-              <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
+              <button
+                onClick={() => setDemo(p)}
+                className="relative mb-4 block h-40 w-full overflow-hidden rounded-xl"
+                aria-label={`Watch ${p.title} walkthrough`}
+              >
                 <img
                   src={p.image}
                   alt={p.title}
@@ -157,8 +162,13 @@ export function Projects() {
                   height={512}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+                <span className="absolute inset-0 grid place-items-center opacity-0 transition group-hover:opacity-100">
+                  <span className="grid h-14 w-14 place-items-center rounded-full bg-[image:var(--gradient-hero)] text-primary-foreground shadow-neon">
+                    <PlayCircle size={26} />
+                  </span>
+                </span>
+              </button>
               <span className="rounded-full bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[color:var(--neon)]">
                 {p.category}
               </span>
@@ -171,12 +181,20 @@ export function Projects() {
               </div>
               <div className="mt-5 flex gap-2">
                 <a href="https://github.com/bsureshkumar005" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-lg glass px-3 py-1.5 text-xs font-semibold transition hover:bg-white/10"><Github size={14} /> Code</a>
-                <a href="#contact" className="inline-flex items-center gap-1.5 rounded-lg bg-[image:var(--gradient-hero)] px-3 py-1.5 text-xs font-semibold text-primary-foreground transition hover:opacity-90"><ExternalLink size={14} /> Live</a>
+                <button
+                  onClick={() => setDemo(p)}
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[image:var(--gradient-hero)] px-3 py-1.5 text-xs font-semibold text-primary-foreground transition hover:opacity-90"
+                >
+                  <PlayCircle size={14} /> Watch Demo
+                </button>
               </div>
             </motion.article>
           ))}
         </AnimatePresence>
       </div>
+      <AnimatePresence>
+        {demo && <ProjectDemo project={demo} onClose={() => setDemo(null)} />}
+      </AnimatePresence>
     </Section>
   );
 }
