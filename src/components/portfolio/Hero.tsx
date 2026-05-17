@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook, Briefcase, Sparkles, Rocket, ShieldCheck } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook, Briefcase, Sparkles, Rocket, ShieldCheck, Volume2, VolumeX } from "lucide-react";
 import suryaPhoto from "@/assets/surya-main.png";
+
+const HR_PITCH = "Hello, I am Suresh Kumar Battala, a Computer Science Engineer from Dharmavaram, Andhra Pradesh. I bring over one and a half years of hands-on professional experience in Microsoft SQL Server and SSIS, where I have designed schemas, written optimised stored procedures and built reliable ETL pipelines. I have also completed six months of intensive training in Python Backend and Web Development. I take complete ownership of my work, communicate clearly with stakeholders and consistently deliver clean, scalable and production ready solutions. I am open to remote, hybrid or onsite roles and ready to join immediately. Thank you for your time, and I look forward to contributing to your team.";
 
 const ROLES = [
   "Python Backend Developer",
@@ -31,6 +33,31 @@ function useTyping(words: string[]) {
 
 export function Hero() {
   const typed = useTyping(ROLES);
+  const [speaking, setSpeaking] = useState(false);
+
+  const toggleIntro = useCallback(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    const synth = window.speechSynthesis;
+    if (speaking) {
+      synth.cancel();
+      setSpeaking(false);
+      return;
+    }
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(HR_PITCH);
+    u.rate = 1;
+    u.pitch = 1;
+    const voices = synth.getVoices();
+    const preferred = voices.find(v => /en-(US|GB|IN)/i.test(v.lang) && /female|samantha|google/i.test(v.name)) || voices.find(v => /en/i.test(v.lang));
+    if (preferred) u.voice = preferred;
+    u.onend = () => setSpeaking(false);
+    u.onerror = () => setSpeaking(false);
+    synth.speak(u);
+    setSpeaking(true);
+  }, [speaking]);
+
+  useEffect(() => () => { if (typeof window !== "undefined") window.speechSynthesis?.cancel(); }, []);
+
   return (
     <section id="home" className="relative overflow-hidden pt-32 pb-20 sm:pt-40">
       <div className="absolute inset-0 grid-bg opacity-40" />
@@ -47,8 +74,11 @@ export function Hero() {
           <h1 className="mt-4 text-5xl font-bold leading-[1.05] sm:text-7xl">
             Hi, I'm <span className="text-gradient-hero">Suresh Kumar Battala</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-            Results-driven <span className="text-foreground font-semibold">Computer Science Engineer</span> who turns business problems into clean, scalable software — Python backends, SQL Server automation and full-stack web apps that ship on time and stay reliable.
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <span className="text-foreground font-semibold">Computer Science Engineer</span> with
+            <span className="text-foreground"> 1.5+ years of professional experience in Microsoft SQL Server &amp; SSIS</span>
+            and <span className="text-foreground">6 months of intensive training in Python Backend &amp; Web Development</span>.
+            I design dependable databases, automate ETL workflows and ship clean, scalable full-stack solutions — with strong ownership, clear communication and a delivery-first mindset.
           </p>
           <p className="mt-3 font-mono text-base sm:text-lg">
             <span className="text-muted-foreground">&gt; </span>
@@ -72,6 +102,15 @@ export function Hero() {
             <a href="#contact" className="group inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-hero)] px-5 py-3 text-sm font-semibold text-primary-foreground shadow-neon transition hover:scale-[1.03]">
               <Briefcase size={18} /> Hire Me
             </a>
+            <button
+              type="button"
+              onClick={toggleIntro}
+              aria-pressed={speaking}
+              className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold transition hover:bg-white/10 hover:ring-neon"
+            >
+              {speaking ? <VolumeX size={18} className="text-[color:var(--neon)]" /> : <Volume2 size={18} className="text-[color:var(--neon)]" />}
+              {speaking ? "Stop AI Intro" : "Hear AI Intro for HR"}
+            </button>
             <a href="/resume.pdf" download className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold transition hover:bg-white/10 hover:ring-neon">
               <Download size={18} /> Download Resume
             </a>

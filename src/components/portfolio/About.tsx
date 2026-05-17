@@ -19,23 +19,27 @@ export function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="space-y-4 text-lg leading-relaxed text-muted-foreground"
+          className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
           <p>
-            I am <span className="text-foreground font-semibold">Suresh Kumar Battala</span>, born and raised in
-            <span className="text-foreground"> Dharmavaram</span>, Andhra Pradesh. I completed my graduation in
-            <span className="text-foreground"> Computer Science & Engineering</span> from
-            <span className="text-foreground"> JNTUA University</span>, where I built a strong foundation in
-            programming, databases and software development.
+            My name is <span className="text-foreground font-semibold">Suresh Kumar Battala</span>. I was born and brought up in
+            <span className="text-foreground"> Dharmavaram, Sri Sathya Sai District, Andhra Pradesh</span>.
           </p>
           <p>
-            I am a passionate developer with hands-on experience in
-            <span className="text-foreground"> Python backend development</span>,
-            <span className="text-foreground"> SQL Server automation</span> and
-            <span className="text-foreground"> full-stack web applications</span>. I bring
-            <span className="text-foreground"> good communication skills</span> and
-            <span className="text-foreground"> strong problem-solving ability</span> to every project — focusing on
-            clean, scalable and reliable solutions that deliver real value.
+            I hold a <span className="text-foreground">Bachelor of Technology in Computer Science & Engineering</span> from
+            <span className="text-foreground"> Vemu Institute of Technology, P. Kothakota, Chittoor</span>, completed in
+            <span className="text-foreground"> 2024</span>.
+          </p>
+          <p>
+            I bring <span className="text-foreground font-semibold">1.5+ years of hands-on professional experience</span> in
+            <span className="text-foreground"> Microsoft SQL Server &amp; SSIS</span> — designing schemas, writing optimised
+            stored procedures and building reliable ETL pipelines — together with
+            <span className="text-foreground"> 6 months of intensive training</span> in
+            <span className="text-foreground"> Python Backend Development and Web Development</span>.
+          </p>
+          <p>
+            I take ownership end-to-end, communicate clearly with stakeholders and consistently deliver
+            <span className="text-foreground"> clean, scalable and production-ready solutions</span> that businesses can trust.
           </p>
         </motion.div>
         <div className="grid grid-cols-2 gap-4">

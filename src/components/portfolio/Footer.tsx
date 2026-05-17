@@ -42,9 +42,9 @@ export function Footer() {
             </a>
             <p className="mt-3 text-sm text-muted-foreground">Computer Science Engineer & Software Developer — building backends, databases and full-stack experiences that teams can trust.</p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2"><MapPin size={14} className="text-[color:var(--neon)]" /> Dharmavaram, Andhra Pradesh</li>
-              <li className="flex items-center gap-2"><Mail size={14} className="text-[color:var(--neon)]" /> bsureshkumarcse@gmail.com</li>
-              <li className="flex items-center gap-2"><Phone size={14} className="text-[color:var(--neon)]" /> Open to Remote / Relocation</li>
+              <li className="flex items-center gap-2"><MapPin size={14} className="text-[color:var(--neon)]" /><span>Dharmavaram, Andhra Pradesh</span></li>
+              <li className="flex items-center gap-2"><Mail size={14} className="text-[color:var(--neon)]" /><span>bsureshkumarcse@gmail.com</span></li>
+              <li className="flex items-center gap-2"><Phone size={14} className="text-[color:var(--neon)]" /><span>Remote · Hybrid · Onsite — all modes welcome</span></li>
             </ul>
           </div>
           <div>
