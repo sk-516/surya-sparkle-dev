@@ -104,18 +104,28 @@ export function ProjectDemo({
             </span>
             <div>
               <p className="text-[10px] font-mono uppercase tracking-widest text-[color:var(--neon)]">
-                Project Walkthrough
+                Project Walkthrough · AI Voice
               </p>
               <h3 className="text-sm font-bold leading-tight sm:text-base">{project.title}</h3>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            aria-label="Close"
-            className="grid h-9 w-9 place-items-center rounded-full glass transition hover:bg-white/10"
-          >
-            <X size={16} />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setMuted((m) => !m)}
+              aria-label={muted ? "Unmute AI voice" : "Mute AI voice"}
+              className="grid h-9 w-9 place-items-center rounded-full glass transition hover:bg-white/10"
+              title={muted ? "Unmute AI narration" : "Mute AI narration"}
+            >
+              {muted ? <VolumeX size={16} /> : <Volume2 size={16} className="text-[color:var(--neon)]" />}
+            </button>
+            <button
+              onClick={onClose}
+              aria-label="Close"
+              className="grid h-9 w-9 place-items-center rounded-full glass transition hover:bg-white/10"
+            >
+              <X size={16} />
+            </button>
+          </div>
         </div>
 
         {/* Stage */}
