@@ -24,16 +24,6 @@ const xp = [
     ],
   },
   {
-    role: "Earthmover Incharge",
-    company: "Zigma Global Environ Solutions Pvt. Ltd. — Atmakur Site",
-    time: "July 2025",
-    bullets: [
-      "Joined under offer dated 14/07/2025 at the Atmakur project site",
-      "Coordinated on-site earthmover operations and daily reporting",
-      "Worked closely with site supervisors on environmental project execution",
-    ],
-  },
-  {
     role: "Microsoft SQL Server & SSIS Trainee",
     company: "Charvee Software Training Institute",
     time: "March 2025 – June 2025",
