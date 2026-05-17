@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { X, Play, Pause, SkipForward, SkipBack } from "lucide-react";
+import { X, Play, Pause, SkipForward, SkipBack, Volume2, VolumeX } from "lucide-react";
 
 export type DemoSlide = {
   title: string;
