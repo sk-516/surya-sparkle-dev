@@ -102,6 +102,15 @@ export function Hero() {
             <a href="#contact" className="group inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-hero)] px-5 py-3 text-sm font-semibold text-primary-foreground shadow-neon transition hover:scale-[1.03]">
               <Briefcase size={18} /> Hire Me
             </a>
+            <button
+              type="button"
+              onClick={toggleIntro}
+              aria-pressed={speaking}
+              className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold transition hover:bg-white/10 hover:ring-neon"
+            >
+              {speaking ? <VolumeX size={18} className="text-[color:var(--neon)]" /> : <Volume2 size={18} className="text-[color:var(--neon)]" />}
+              {speaking ? "Stop AI Intro" : "Hear AI Intro for HR"}
+            </button>
             <a href="/resume.pdf" download className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold transition hover:bg-white/10 hover:ring-neon">
               <Download size={18} /> Download Resume
             </a>
