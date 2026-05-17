@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook, Briefcase, Sparkles, Rocket, ShieldCheck } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook, Briefcase, Sparkles, Rocket, ShieldCheck, Volume2, VolumeX } from "lucide-react";
 import suryaPhoto from "@/assets/surya-main.png";
+
+const HR_PITCH = "Hello, I am Suresh Kumar Battala, a Computer Science Engineer from Dharmavaram, Andhra Pradesh. I bring over one and a half years of hands-on professional experience in Microsoft SQL Server and SSIS, where I have designed schemas, written optimised stored procedures and built reliable ETL pipelines. I have also completed six months of intensive training in Python Backend and Web Development. I take complete ownership of my work, communicate clearly with stakeholders and consistently deliver clean, scalable and production ready solutions. I am open to remote, hybrid or onsite roles and ready to join immediately. Thank you for your time, and I look forward to contributing to your team.";
 
 const ROLES = [
   "Python Backend Developer",
