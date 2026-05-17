@@ -47,8 +47,11 @@ export function Hero() {
           <h1 className="mt-4 text-5xl font-bold leading-[1.05] sm:text-7xl">
             Hi, I'm <span className="text-gradient-hero">Suresh Kumar Battala</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-            Results-driven <span className="text-foreground font-semibold">Computer Science Engineer</span> who turns business problems into clean, scalable software — Python backends, SQL Server automation and full-stack web apps that ship on time and stay reliable.
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <span className="text-foreground font-semibold">Computer Science Engineer</span> with
+            <span className="text-foreground"> 1.5+ years of professional experience in Microsoft SQL Server &amp; SSIS</span>
+            and <span className="text-foreground">6 months of intensive training in Python Backend &amp; Web Development</span>.
+            I design dependable databases, automate ETL workflows and ship clean, scalable full-stack solutions — with strong ownership, clear communication and a delivery-first mindset.
           </p>
           <p className="mt-3 font-mono text-base sm:text-lg">
             <span className="text-muted-foreground">&gt; </span>
