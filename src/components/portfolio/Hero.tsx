@@ -33,6 +33,31 @@ function useTyping(words: string[]) {
 
 export function Hero() {
   const typed = useTyping(ROLES);
+  const [speaking, setSpeaking] = useState(false);
+
+  const toggleIntro = useCallback(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    const synth = window.speechSynthesis;
+    if (speaking) {
+      synth.cancel();
+      setSpeaking(false);
+      return;
+    }
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(HR_PITCH);
+    u.rate = 1;
+    u.pitch = 1;
+    const voices = synth.getVoices();
+    const preferred = voices.find(v => /en-(US|GB|IN)/i.test(v.lang) && /female|samantha|google/i.test(v.name)) || voices.find(v => /en/i.test(v.lang));
+    if (preferred) u.voice = preferred;
+    u.onend = () => setSpeaking(false);
+    u.onerror = () => setSpeaking(false);
+    synth.speak(u);
+    setSpeaking(true);
+  }, [speaking]);
+
+  useEffect(() => () => { if (typeof window !== "undefined") window.speechSynthesis?.cancel(); }, []);
+
   return (
     <section id="home" className="relative overflow-hidden pt-32 pb-20 sm:pt-40">
       <div className="absolute inset-0 grid-bg opacity-40" />
