@@ -28,7 +28,30 @@ export function ProjectDemo({
   const [idx, setIdx] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [muted, setMuted] = useState(false);
   const total = project.slides.length;
+
+  // AI voiceover via browser SpeechSynthesis
+  useEffect(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    if (muted || !playing) return;
+    const slide = project.slides[idx];
+    const script = [
+      `${slide.accent ?? project.title}.`,
+      `${slide.title}.`,
+      slide.body,
+      slide.bullets?.length ? `Key points: ${slide.bullets.join(". ")}.` : "",
+    ].filter(Boolean).join(" ");
+    const u = new SpeechSynthesisUtterance(script);
+    u.rate = 1.05;
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v => /en-(US|GB|IN)/i.test(v.lang) && /female|samantha|google|natural|aria|jenny/i.test(v.name))
+      || voices.find(v => /^en/i.test(v.lang));
+    if (preferred) u.voice = preferred;
+    window.speechSynthesis.speak(u);
+    return () => window.speechSynthesis.cancel();
+  }, [idx, playing, muted, project]);
 
   useEffect(() => {
     if (!playing) return;
