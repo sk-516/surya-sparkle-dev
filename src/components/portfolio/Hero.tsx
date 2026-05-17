@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook } from "lucide-react";
+import { Download, Mail, FolderGit2, Github, Linkedin, Instagram, Facebook, Briefcase, Sparkles, Rocket, ShieldCheck } from "lucide-react";
 import suryaPhoto from "@/assets/surya-main.png";
 
 const ROLES = [
@@ -37,19 +37,42 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-32 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[image:var(--gradient-hero)] opacity-20 blur-3xl" />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[1.2fr_1fr] md:items-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <h1 className="text-5xl font-bold leading-[1.05] sm:text-7xl">
+          <span className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs font-mono uppercase tracking-widest text-[color:var(--neon)]">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--neon)] opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--neon)]" />
+            </span>
+            Open to Full-Time Opportunities
+          </span>
+          <h1 className="mt-4 text-5xl font-bold leading-[1.05] sm:text-7xl">
             Hi, I'm <span className="text-gradient-hero">Suresh Kumar Battala</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-            Computer Science Engineer crafting backends, databases and full-stack experiences.
+            Results-driven <span className="text-foreground font-semibold">Computer Science Engineer</span> who turns business problems into clean, scalable software — Python backends, SQL Server automation and full-stack web apps that ship on time and stay reliable.
           </p>
           <p className="mt-3 font-mono text-base sm:text-lg">
             <span className="text-muted-foreground">&gt; </span>
             <span className="text-gradient">{typed}</span>
             <span className="caret" />
           </p>
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+            {[
+              { Icon: Rocket, text: "Production ETL pipelines across 120+ tables" },
+              { Icon: ShieldCheck, text: "Security-first, ACID-safe data engineering" },
+              { Icon: Sparkles, text: "Clean, accessible UI with modern React" },
+              { Icon: Briefcase, text: "Strong communicator & fast learner" },
+            ].map(({ Icon, text }) => (
+              <li key={text} className="flex items-center gap-2 rounded-lg glass px-3 py-2 text-sm">
+                <Icon size={14} className="shrink-0 text-[color:var(--neon)]" />
+                <span className="text-muted-foreground">{text}</span>
+              </li>
+            ))}
+          </ul>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="/resume.pdf" download className="group inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-hero)] px-5 py-3 text-sm font-semibold text-primary-foreground shadow-neon transition hover:scale-[1.03]">
+            <a href="#contact" className="group inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-hero)] px-5 py-3 text-sm font-semibold text-primary-foreground shadow-neon transition hover:scale-[1.03]">
+              <Briefcase size={18} /> Hire Me
+            </a>
+            <a href="/resume.pdf" download className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold transition hover:bg-white/10 hover:ring-neon">
               <Download size={18} /> Download Resume
             </a>
             <a href="#contact" className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-semibold transition hover:bg-white/10">
@@ -58,6 +81,18 @@ export function Hero() {
             <a href="#projects" className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-muted-foreground transition hover:border-[color:var(--neon)] hover:text-foreground">
               <FolderGit2 size={18} /> View Projects
             </a>
+          </div>
+          <div className="mt-6 grid max-w-md grid-cols-3 gap-3">
+            {[
+              { k: "6+", v: "Live Projects" },
+              { k: "5+", v: "Roles & Trainings" },
+              { k: "100%", v: "Delivery Mindset" },
+            ].map((s) => (
+              <div key={s.v} className="rounded-xl glass p-3 text-center">
+                <p className="font-display text-xl font-bold text-gradient-hero">{s.k}</p>
+                <p className="mt-0.5 text-[10px] uppercase tracking-wider text-muted-foreground">{s.v}</p>
+              </div>
+            ))}
           </div>
           <div className="mt-8 flex items-center gap-3">
             {[
